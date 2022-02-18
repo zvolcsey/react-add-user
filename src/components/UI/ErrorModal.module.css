@@ -1,0 +1,27 @@
+.error-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 40rem;
+  z-index: 100;
+}
+
+.error-modal h2 {
+  margin: 0;
+  padding: 1rem;
+  color: #fff;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  background: #5c13d3;
+}
+
+.error-modal p {
+  padding: 1rem;
+}
+
+.error-modal button {
+  float: right;
+  margin: 0 1rem 1rem 0;
+}
