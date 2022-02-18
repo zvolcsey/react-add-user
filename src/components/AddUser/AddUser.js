@@ -4,9 +4,11 @@ import styles from './AddUser.module.css';
 import AddUserForm from './AddUserForm';
 import Button from '../UI/Button';
 import Card from '../UI/Card';
+import ErrorModal from '../UI/ErrorModal';
 
 const AddUser = (props) => {
   const [formIsShow, setFormIsShow] = useState(false);
+  const [error, setError] = useState();
 
   const saveUserDataHandler = (enteredUserData) => {
     const userData = {
@@ -25,8 +27,15 @@ const AddUser = (props) => {
     setFormIsShow(false);
   };
 
-  const invalidValueHandler = (errorText) => {
-    props.onShowErrorModal(errorText);
+  const errorHandler = ({ title, message }) => {
+    setError({
+      title,
+      message,
+    });
+  };
+
+  const closeModalHandler = () => {
+    setError(null);
   };
 
   let addUserContent = <Button onClick={showFormHandler}>Add New User</Button>;
@@ -34,13 +43,24 @@ const AddUser = (props) => {
     addUserContent = (
       <AddUserForm
         onSaveUserData={saveUserDataHandler}
-        onInvalidValue={invalidValueHandler}
+        onError={errorHandler}
         onCancel={hideFormHandler}
       />
     );
   }
 
-  return <Card className={styles['add-user']}>{addUserContent}</Card>;
+  return (
+    <div>
+      {error && (
+        <ErrorModal
+          title={error.title}
+          message={error.message}
+          onConfirm={closeModalHandler}
+        />
+      )}
+      <Card className={styles['add-user']}>{addUserContent}</Card>
+    </div>
+  );
 };
 
 export default AddUser;

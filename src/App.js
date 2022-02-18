@@ -1,13 +1,10 @@
 import { useState } from 'react';
 
 import AddUser from './components/AddUser/AddUser';
-import ErrorModal from './components/UI/ErrorModal';
 import Users from './components/Users/Users';
 
 const App = () => {
   const [users, setUsers] = useState([]);
-  const [showErrorModal, setShowErrorModal] = useState(false);
-  const [errorText, setErrorText] = useState('');
 
   const addUserHandler = (user) => {
     setUsers((prevState) => {
@@ -15,26 +12,10 @@ const App = () => {
     });
   };
 
-  const showErrorModalHandler = (errorText) => {
-    setErrorText(errorText);
-    setShowErrorModal(true);
-  };
-
-  const hideErrorModalHandler = () => {
-    setShowErrorModal(false);
-  };
   return (
     <div>
-      <AddUser
-        onAddUser={addUserHandler}
-        onShowErrorModal={showErrorModalHandler}
-      />
+      <AddUser onAddUser={addUserHandler} />
       <Users users={users} />
-      <ErrorModal
-        show={showErrorModal}
-        text={errorText}
-        onHideErrorModal={hideErrorModalHandler}
-      />
     </div>
   );
 };

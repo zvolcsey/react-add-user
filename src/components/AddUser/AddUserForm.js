@@ -17,23 +17,28 @@ const AddUserForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    let errorText;
 
-    if (enteredUsername.length === 0 || enteredAge.length === 0) {
-      errorText = 'Please enter a valid username and age (non-empty-values).';
-      props.onInvalidValue(errorText);
+    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+      props.onError({
+        title: 'Invalid input',
+        message: 'Please enter a valid username and age (non-empty-values).',
+      });
       return;
     }
 
-    if (enteredUsername.length > 10) {
-      errorText = 'Please enter a valid username (between 1 and 10 character).';
-      props.onInvalidValue(errorText);
+    if (enteredUsername.trim().length > 10) {
+      props.onError({
+        title: 'Invalid username',
+        message: 'Please enter a valid username (between 1 and 10 character).',
+      });
       return;
     }
 
-    if (enteredAge < 0) {
-      errorText = 'Please enter a valid age (> 0).';
-      props.onInvalidValue(errorText);
+    if (+enteredAge < 1) {
+      props.onError({
+        title: 'Invalid age',
+        message: 'Please enter a valid age (> 0).',
+      });
       return;
     }
 
@@ -54,6 +59,7 @@ const AddUserForm = (props) => {
         <label htmlFor='username'>Username</label>
         <input
           type='text'
+          id='username'
           value={enteredUsername}
           onChange={usernameChangeHandler}
         />
@@ -63,6 +69,7 @@ const AddUserForm = (props) => {
         <label htmlFor='age'>Age (Years)</label>
         <input
           type='number'
+          id='age'
           value={enteredAge}
           onChange={ageChangeHandler}
           step='1'

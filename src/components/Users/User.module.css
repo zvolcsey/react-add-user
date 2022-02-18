@@ -1,4 +1,9 @@
 .user {
+  margin-bottom: 0.6rem;
   padding: 0.6rem;
   border: 1px solid #ccc;
+}
+
+.user:last-of-type {
+  margin: 0;
 }
