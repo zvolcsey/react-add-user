@@ -8,7 +8,7 @@ In this app you can add user with a form to a list.
 
 It is a practice project in the Udemy [course](https://www.udemy.com/course/react-the-complete-guide-incl-redux) by (Academind by Maximilian Schwarzmüller).
 
-I created my version at the first time and check the instructor solution.
+I created my version at the first time and checked the instructor solution.
 
 After that I fixed the my version.
 
