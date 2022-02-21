@@ -2,15 +2,13 @@
 
 ## Overview
 
-This repo contain a web page that was created in React.
+This repo contains a web page that was created with React.
 
-In this app you can add user with a form to a list.
+The app lets you add user with a form to a list.
 
-It is a practice project in the Udemy [course](https://www.udemy.com/course/react-the-complete-guide-incl-redux) by (Academind by Maximilian Schwarzmüller).
+It is a practice project in the Udemy [course](https://www.udemy.com/course/react-the-complete-guide-incl-redux) by Academind by Maximilian Schwarzmüller.
 
-I created my version at the first time and checked the instructor solution.
-
-After that I fixed the my version.
+I created my version at first and then checked the instructor's solution to improve my original version.
 
 ## Run locally
 
